@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <>
       <Box sx={{ flexFlow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" style={{ backgroundColor: "black" }}>
           <Toolbar>
             <Typography
               style={{ fontWeight: "650", marginLeft: "40px" }}

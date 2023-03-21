@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import LinearBar from "../../components/utils/LinearBar";
 import { IconButton, InputBase, Paper } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { useGetMoviesMutation } from "../../services/movieApi";
@@ -6,9 +7,8 @@ import MovieDisplay from "../../components/MovieDisplay";
 
 const AddMovie = () => {
   const [query, setQuery] = useState("");
-  const [getMovies, { data: movies }] = useGetMoviesMutation();
+  const [getMovies, { data: movies, isLoading }] = useGetMoviesMutation();
 
-  console.log("--->", movies);
   useEffect(() => {
     if (query) {
       fetchMovie();
@@ -52,12 +52,18 @@ const AddMovie = () => {
           <SearchIcon />
         </IconButton>
       </Paper>
-      <div className="results">
-        {movies?.results?.length > 0 &&
-          movies?.results?.map((movie) => (
-            <MovieDisplay key={movie.id} movie={movie} />
-          ))}
-      </div>
+      {isLoading ? (
+        <LinearBar />
+      ) : (
+        <>
+          <div className="results">
+            {movies?.results?.length > 0 &&
+              movies?.results?.map((movie) => (
+                <MovieDisplay key={movie.id} movie={movie} />
+              ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };
