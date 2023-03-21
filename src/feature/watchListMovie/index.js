@@ -9,7 +9,7 @@ const WatchListMovies = () => {
   const watchListMovies = useSelector(selectAllWatchListMovies);
   // const watchListMovies = useSelector((state)=> state.movies.watchListMovies)
   // bcz i have already create a selector in my slice selectAllWatchListMovies.
-  console.log("sddddd",watchListMovies)
+  console.log("sddddd", watchListMovies);
   return (
     <>
       <Container fixed>
@@ -18,7 +18,7 @@ const WatchListMovies = () => {
         </Typography>
         {watchListMovies.length > 0 ? (
           <>
-            <MovieGrid movies={watchListMovies} type='watchList'/>
+            <MovieGrid movies={watchListMovies} type="watchList" />
           </>
         ) : (
           <>

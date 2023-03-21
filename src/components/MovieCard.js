@@ -5,32 +5,31 @@ import MovieControl from "./MovieControl";
 
 const MovieCard = ({ movie, type }) => {
   const [display, setDisplay] = useState("notdisplayed");
- 
-  const showIcon = (e)=>{
+
+  const showIcon = (e) => {
     e.preventDefault();
-    setDisplay('displayed')
+    setDisplay("displayed");
   };
 
-  
-  const hideIcon = (e)=>{
+  const hideIcon = (e) => {
     e.preventDefault();
-    setDisplay('notdisplayed')
-  }
+    setDisplay("notdisplayed");
+  };
   return (
     <div className="movie_card">
       {/* <h1>Movie Added</h1> */}
       <Card sx={{ display: "flex", m: 1 }}>
         <div
-         onMouseEnter={(e)=>showIcon(e)}
-         onMouseLeave={(e)=>hideIcon(e)}
+          onMouseEnter={(e) => showIcon(e)}
+          onMouseLeave={(e) => hideIcon(e)}
         >
-        <CardMedia
-          component="img"
-          sx={{ width: 220 }}
-          image={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-          alt={movie.titlle}
-        />
-        <MovieControl type={type} movie={movie} display={display}/>
+          <CardMedia
+            component="img"
+            sx={{ width: 220 }}
+            image={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            alt={movie.titlle}
+          />
+          <MovieControl type={type} movie={movie} display={display} />
         </div>
       </Card>
     </div>

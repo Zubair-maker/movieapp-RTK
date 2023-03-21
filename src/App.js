@@ -9,11 +9,11 @@ import Header from "./components/Header";
 function App() {
   return (
     <BrowserRouter>
-     <Header/>
+      <Header />
       <Routes>
-        <Route path="/" element={<WatchListMovies/>}/>
-        <Route path="/watched" element={<WachedMovies/>}/>
-        <Route path="/add" element={<AddMovie/>}/>
+        <Route path="/" element={<WatchListMovies />} />
+        <Route path="/watched" element={<WachedMovies />} />
+        <Route path="/add" element={<AddMovie />} />
       </Routes>
     </BrowserRouter>
   );

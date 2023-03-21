@@ -4,14 +4,17 @@ import { CardMedia } from "@mui/material/";
 import { Box, Stack } from "@mui/system";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
-import { addMovieToWatchList, selectAllWatchListMovies } from "../feature/addMovie/MovieSlice";
+import {
+  addMovieToWatchList,
+  selectAllWatchListMovies,
+} from "../feature/addMovie/MovieSlice";
 
 const MovieDisplay = ({ movie }) => {
   const dispatch = useDispatch();
-  
+
   const watchListMovies = useSelector(selectAllWatchListMovies);
 
-  const disabledmovie = watchListMovies.find((item)=> item.id === movie.id)
+  const disabledmovie = watchListMovies.find((item) => item.id === movie.id);
 
   return (
     <Card sx={{ display: "flex", height: "170", m: 1 }}>
